@@ -21,5 +21,7 @@ namespace Cheesebaron.MvxPlugins.ModernHttpClient
     public interface IHttpClientFactory
     {
         HttpClient Get();
+        HttpClient Get(HttpMessageHandler handler);
+        HttpMessageHandler GetHandler();
     }
 }

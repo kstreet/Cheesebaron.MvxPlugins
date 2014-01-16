@@ -14,6 +14,7 @@
 // permissions and limitations under the License.
 //---------------------------------------------------------------------------------
 
+using System;
 using System.Net.Http;
 using ModernHttpClient;
 
@@ -23,7 +24,22 @@ namespace Cheesebaron.MvxPlugins.ModernHttpClient.Touch
     {
         public HttpClient Get()
         {
-            return new HttpClient(new AFNetworkHandler());
+            var handler = GetHandler();
+            var client = Get(handler);
+            return client;
+        }
+
+        public HttpMessageHandler GetHandler()
+        {
+            var handler = new AFNetworkHandler();
+            return handler;
+        }
+
+        public HttpClient Get(HttpMessageHandler handler)
+        {
+            if (handler == null) throw new ArgumentNullException("handler");
+            var client = new HttpClient(handler);
+            return client;
         }
     }
 }

@@ -14,6 +14,7 @@
 // permissions and limitations under the License.
 //---------------------------------------------------------------------------------
 
+using System;
 using System.Net.Http;
 using ModernHttpClient;
 
@@ -23,7 +24,22 @@ namespace Cheesebaron.MvxPlugins.ModernHttpClient.Droid
     {
         public HttpClient Get()
         {
-            return new HttpClient(new OkHttpNetworkHandler());
+            var handler = GetHandler();
+            var client = Get(handler);
+            return client;
+        }
+
+        public HttpClient Get(HttpMessageHandler handler)
+        {
+            if (handler == null) throw new ArgumentNullException("handler");
+            var client = new HttpClient(handler);
+            return client;
+        }
+
+        public HttpMessageHandler GetHandler()
+        {
+            var handler = new OkHttpNetworkHandler();
+            return handler;
         }
     }
 }

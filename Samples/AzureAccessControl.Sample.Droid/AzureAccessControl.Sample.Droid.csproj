@@ -80,6 +80,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\..\Components\xamandroidsupportv7appcompat-7.18.0\lib\android\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat">
+      <HintPath>..\..\Components\xamandroidsupportv7appcompat-7.18.0\lib\android\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\AzureAcsPluginBootstrap.cs" />
@@ -104,19 +110,16 @@
     <AndroidResource Include="Resources\Drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidJavaSource Include="..\..\AzureAccessControl\Cheesebaron.MvxPlugins.AzureAccessControl.Droid\AccessControlJavascriptNotify.java">
-      <Link>AccessControlJavascriptNotify.java</Link>
-    </AndroidJavaSource>
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AzureAccessControl\Cheesebaron.MvxPlugins.AzureAccessControl.Droid\Cheesebaron.MvxPlugins.AzureAccessControl.Droid.csproj">
-      <Project>{421a99fa-c25f-481f-a7f6-30670a972b8d}</Project>
-      <Name>Cheesebaron.MvxPlugins.AzureAccessControl.Droid</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\AzureAccessControl\Cheesebaron.MvxPlugins.AzureAccessControl\Cheesebaron.MvxPlugins.AzureAccessControl.csproj">
+    <ProjectReference Include="..\..\AzureAccessControl\AzureAccessControl.Core\AzureAccessControl.Core.csproj">
       <Project>{70b42c5a-7f65-45ac-ab9a-0a4225f8f337}</Project>
-      <Name>Cheesebaron.MvxPlugins.AzureAccessControl</Name>
+      <Name>AzureAccessControl.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AzureAccessControl\AzureAccessControl.Droid.AppCompat\AzureAccessControl.Droid.AppCompat.csproj">
+      <Project>{421a99fa-c25f-481f-a7f6-30670a972b8d}</Project>
+      <Name>AzureAccessControl.Droid.AppCompat</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Settings\Cheesebaron.MvxPlugins.Settings.Droid\Cheesebaron.MvxPlugins.Settings.Droid.csproj">
       <Project>{4456f80a-718a-479a-a2d9-f3f986fd82ac}</Project>
@@ -130,6 +133,12 @@
       <Project>{BACA1F45-5FB7-4BFB-B63A-C3ABEBE70A08}</Project>
       <Name>Cheesebaron.MvxPlugins.Settings</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="xamandroidsupportv7appcompat">
+      <Visible>False</Visible>
+      <Version>7.18.0</Version>
+    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

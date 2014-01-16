@@ -110,3 +110,10 @@ UpgradeLog*.XML
 
 # nupkg for nuget
 *.nupkg
+
+# Xamarin components
+[Cc]omponents
+
+# Don't add ModernHttpClient binaries
+ModernHttpClient/vendor/MonoAndroid/*
+ModernHttpClient/vendor/MonoTouch/*
